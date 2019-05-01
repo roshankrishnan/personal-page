@@ -1,12 +1,23 @@
 import React, { Component } from "react";
-import { Container, Form } from 'semantic-ui-react';
+import { Container, Form, Header } from 'semantic-ui-react';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import './pageStyle.css'
 
 class Contact extends Component {
   render() {
     return (
+
+    <CSSTransitionGroup
+      transitionName="pageTransition"
+      transitionAppear={true}
+      transitionAppearTimeout={500}
+      transitionEnter={false}
+      transitionLeave={false}>
       <div>
-        <Container text>
-        <h1>Contact me</h1>
+      <br/>
+        <Container>
+        <Header as='h1'>Contact me</Header>
+        <p> As I cannot publish my code from school publicly, feel free to contact me about access to my repositories or any other inquiries!</p>
         <Form action="https://formspree.io/roshan.krishnan.97@gmail.com" method="POST">
         	<Form.Group widths='equal'>
 	        	<Form.Input required fluid label='Name'  placeholder='Your name' name="name"/>
@@ -18,6 +29,7 @@ class Contact extends Component {
         </Form>
         </Container>
       </div>
+      </CSSTransitionGroup>
     );
   }
 }
